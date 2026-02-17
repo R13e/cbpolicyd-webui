@@ -91,7 +91,7 @@ if ($_POST['frmaction'] == "add")  {
 # Check a policy was selected
 if (isset($_REQUEST['quota_id'])) {
 
-	$stmt = $db->prepare("SELECT Type, CounterLimit, Disabled FROM ${DB_TABLE_PREFIX}quota_limits WHERE QuotaID = ?");
+	$stmt = $db->prepare("SELECT Type, CounterLimit, Disabled FROM ${DB_TABLE_PREFIX}quotas_limits WHERE QuotasID = ?");
 	$quota_stmt = $db->prepare("SELECT Name FROM ${DB_TABLE_PREFIX}quotas WHERE ID = ?");
 	$quota_stmt->execute(array($_REQUEST['quota_id']));
 	$row = $quota_stmt->fetchObject();
